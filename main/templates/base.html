@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
-            <a href="" class="navbar-brand">Bottle Shop</a>
+            <a href="/" class="navbar-brand">Bottle Shop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,19 +22,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="" class="nav-link text-white">Home</a>
+                    <a href="/" class="nav-link text-white">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{% url 'category-list' %}">Categories</a>
                   </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-white" href="/brands.php">Brands</a>
+                    <a class="nav-link text-white" href="{% url 'brand-list' %}">Brands</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-white" href="/cart.php"><i class="fa fa-shopping-cart"></i>Cart(2)</a>
+                    <a class="nav-link text-white" href="/cart.php"><i class="fa fa-shopping-cart"></i>Cart(2)</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-white" href="/account.php"><i class="fa fa-user"></i>My Account</a>
+                    <a class="nav-link text-white" href="/account.php"><i class="fa fa-user"></i>My Account</a>
                 </li>
             </ul>
           </div>
