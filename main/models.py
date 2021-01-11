@@ -3,11 +3,17 @@ from django.utils.html import mark_safe
 # Create your models here.
 
 class Banner(models.Model):
-    img = models.CharField(max_length=200)
+    img = models.ImageField(upload_to="banner_imgs/")
     alt_text = models.CharField(max_length=300)
 
     class Meta:
-        verbose_name_plural = '1. Banners'                                                                  
+        verbose_name_plural = '1. Banners'
+
+    def image_tag(self):
+         return mark_safe('<img src="%s"  width="100" />' % (self.img.url))     
+
+    def __str__(self):
+        return self.alt_text                                                             
 
 class Category(models.Model):
     title = models.CharField(max_length = 100)
@@ -64,6 +70,7 @@ class Product(models.Model):
     color = models.ForeignKey(Color, on_delete=models.CASCADE)
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
     status = models.BooleanField(default = True)
+    is_featured = models.BooleanField(default = False)
 
     class Meta:
         verbose_name_plural = '6. Products'

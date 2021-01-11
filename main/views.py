@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from . models import Category, Brand, Product, ProductAttribute
+from . models import Category, Brand, Product, ProductAttribute, Banner
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+	banners = Banner.objects.all().order_by('-id')
+	data = Product.objects.filter(is_featured=True).order_by('-id')
+	return render(request, 'index.html', {'data':data, 'banners':banners})
 
 # Category
 def category_list(request):
