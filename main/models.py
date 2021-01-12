@@ -28,6 +28,8 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+     
+
 class Brand(models.Model):
     title = models.CharField(max_length = 100)
     image = models.ImageField(upload_to="brand_imgs/")
@@ -37,6 +39,9 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.title
+
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" />' % (self.image.url))
 
 class Color(models.Model):
     title = models.CharField(max_length = 100)
@@ -78,6 +83,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" />' % (self.image.url))
+
 #Product Attribute  
 class ProductAttribute(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -90,6 +98,9 @@ class ProductAttribute(models.Model):
 
     def __str__(self):
       return self.product.title
+
+    def color_bg(self):
+        return mark_safe('<div style="width:30px; height:30px; background:%s"></div>' % (self.color.color_code))
 
 
     
